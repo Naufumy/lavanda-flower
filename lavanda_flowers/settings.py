@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rs#ua#3un96py)r-p9u5kbf8$vunnoc%09^hz&!jtmqh@ip=k4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["yourdomain.com", "your-server-ip", "127.0.0.1"]
+ALLOWED_HOSTS = ["lavanda-flower.onrender.com"]
 
 
 # Application definition
