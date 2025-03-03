@@ -1,0 +1,7 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <h1>Спасибо за заказ!</h1>
+    <p>Ваш заказ №{{ order.id }} успешно оформлен.</p>
+    <a href="{% url 'flower_list' %}">Вернуться в магазин</a>
+{% endblock %}

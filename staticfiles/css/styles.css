@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    border-bottom: 3px solid #ff69b4;
+}
+
+h1 {
+    color: #ff69b4;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+}
+
+.btn-primary:hover {
+    background-color: #e6518c;
+}
+
+.cart-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Блок товара */
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Левая часть: изображение и название */
+  .item-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .product-name {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Правая часть: количество, цена, удаление */
+  .item-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .qty-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    color: #333;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .quantity {
+    min-width: 20px;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .price {
+    font-weight: bold;
+    text-align: right;
+  }
+  .remove-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  /* Адаптивность для мобильных устройств */
+  @media (max-width: 600px) {
+    .cart-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .item-right {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }

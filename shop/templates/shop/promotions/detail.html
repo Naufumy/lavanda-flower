@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <h1>{{ promotion.title }}</h1>
+    <p>{{ promotion.description }}</p>
+    
+    <h3>🛍️ Товары в акции:</h3>
+    <div class="row">
+        {% for product in promotion.products.all %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">Цена: <strong>{{ product.price }} ₽</strong></p>
+                        <a href="{% url 'flower_detail' product.id %}" class="btn btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

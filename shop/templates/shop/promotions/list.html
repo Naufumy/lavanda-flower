@@ -1,0 +1,13 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <h1>🎉 Акции</h1>
+    <ul class="list-group">
+        {% for promotion in promotions %}
+            <li class="list-group-item">
+                <h3><a href="{% url 'promotion_detail' promotion.slug %}">{{ promotion.title }}</a></h3>
+                <p>{{ promotion.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

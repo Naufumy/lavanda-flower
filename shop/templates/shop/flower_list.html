@@ -1,0 +1,19 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <h1 class="text-center">🌸 Каталог цветов</h1>
+    <div class="row">
+        {% for flower in flowers %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ flower.image.url }}" class="card-img-top" alt="{{ flower.name }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ flower.name }}</h5>
+                    <p class="card-text">Цена: <strong>{{ flower.price }} ₽</strong></p>
+                    <a href="{% url 'flower_detail' flower.id %}" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

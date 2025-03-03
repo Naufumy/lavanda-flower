@@ -1,0 +1,53 @@
+{% extends "shop/base.html" %}
+{% block content %}
+<div class="container cart-container">
+    <h2 class="text-center">🛒 Ваш заказ</h2>
+    {% if cart %}
+        {% for item in cart %}
+        <div class="cart-item">
+            <div class="item-left">
+                <img src="{{ item.flower.image.url }}" alt="{{ item.flower.name }}" class="cart-item-image">
+                <div class="product-name">{{ item.flower.name }}</div>
+            </div>
+
+            <div class="item-right">
+                <div class="quantity-controls">
+                    <form action="{% url 'cart_add' item.flower.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="{{ item.quantity|add:'-1' }}">
+                        <input type="hidden" name="update" value="True">
+                        <button type="submit" class="qty-btn">−</button>
+                    </form>
+            
+                    <span class="quantity">{{ item.quantity }}</span>
+            
+                    <form action="{% url 'cart_add' item.flower.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="{{ item.quantity|add:'1' }}">
+                        <input type="hidden" name="update" value="True">
+                        <button type="submit" class="qty-btn">+</button>
+                    </form>
+                </div>
+            
+                <div class="unit-price">{{ item.price }} ₽ / шт.</div>
+            
+                <div class="total-price">{{ item.total_price }} ₽</div>
+            
+                <form action="{% url 'cart_remove' item.flower.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="remove-btn">🗑️</button>
+                </form>
+            </div>
+            
+        </div>
+        {% endfor %}
+        <p class="cart-total">Общая сумма: {{ cart.get_total_price }} ₽</p>
+        <div class="cart-buttons">
+            <a href="{% url 'flower_list' %}" class="btn btn-secondary">Продолжить покупки</a>
+            <a href="{% url 'order_create' %}" class="btn btn-success">Оформить заказ</a>
+        </div>
+    {% else %}
+        <p class="text-center">Корзина пуста</p>
+    {% endif %}
+</div>
+{% endblock %}

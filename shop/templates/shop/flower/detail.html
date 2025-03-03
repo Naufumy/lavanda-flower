@@ -1,0 +1,20 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ flower.image.url }}" class="img-fluid rounded shadow-sm" alt="{{ flower.name }}">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ flower.name }}</h1>
+            <p class="lead">{{ flower.description }}</p>
+            <h3 class="text-danger">{{ flower.price }} ₽</h3>
+            <form action="{% url 'cart_add' flower.id %}" method="post">
+                {% csrf_token %}
+                <label for="quantity">Количество:</label>
+                <input type="number" name="quantity" value="1" min="1" class="form-control w-50">
+                <button type="submit" class="btn btn-primary mt-3">Добавить в корзину</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
