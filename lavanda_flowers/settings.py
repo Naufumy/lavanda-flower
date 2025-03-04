@@ -14,6 +14,7 @@ from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import dj_database_url
 
 cloudinary.config( 
   cloud_name = "dgumammka",  
@@ -88,10 +89,7 @@ WSGI_APPLICATION = 'lavanda_flowers.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.getenv('postgresql://lavanda_0iri_user:yPbaREt20Q2Bk2XY0gPDzq8LQOUci3Et@dpg-cv3i4qogph6c738rpmbg-a.oregon-postgres.render.com/lavanda_0iri'))
 }
 
 
