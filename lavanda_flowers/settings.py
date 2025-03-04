@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'lavanda_flowers.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('postgresql://lavanda_0iri_user:yPbaREt20Q2Bk2XY0gPDzq8LQOUci3Et@dpg-cv3i4qogph6c738rpmbg-a.oregon-postgres.render.com/lavanda_0iri'))
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
